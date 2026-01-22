@@ -1,0 +1,16 @@
+{
+  "name": "spoofybot",
+  "version": "1.0.0",
+  "description": "SpoofyBot application",
+  "main": "Server/index.js",
+  "scripts": {
+    "install-server": "cd Server && npm install",
+    "install-client": "cd client && npm install",
+    "install-all": "npm run install-server && npm run install-client",
+    "build-client": "cd client && npm run build",
+    "start": "node Server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
