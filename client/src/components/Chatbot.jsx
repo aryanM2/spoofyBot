@@ -21,7 +21,7 @@ function Chatbot() {
            
             if(!input.trim()){return}
             setloading(true)
-            const res= await axios.post("http://localhost:4000/bot/v1/message",{
+            const res= await axios.post("https://spoofybotserver.onrender.com/bot/v1/message",{
                 text:input
             })
             
