@@ -10,7 +10,7 @@ app.use(cors());
 dotenv.config();
 
 app.get("/", (req, res) => {
-  console.log("hello");
+ 
   res.send("Hello World!");
 });
 
