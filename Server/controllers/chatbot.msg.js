@@ -11,82 +11,170 @@ export const message = async (req, res) => {
       name: "user",
       text,
     });
-    const Responses = {
-      // ===== GREETINGS (50+) =====
-      hello: "Hello! How can I help you?",
-      hi: "Hi there!",
-      hey: "Hey! What’s up?",
-      "good morning": "Good morning! Have a great day.",
-      "good afternoon": "Good afternoon!",
-      "good evening": "Good evening!",
-      "good night": "Good night! Sweet dreams.",
-      "hello bot": "Hello! I am here to assist you.",
-      "hi bot": "Hi! How can I help?",
-      "hey assistant": "Hey! Ask me anything.",
 
-      // ===== SMALL TALK (100+) =====
-      "how are you": "I am doing great. What about you?",
-      "how are you?": "I am fine, thanks for asking!",
-      "what's up": "Just here to help you.",
-      "what are you doing": "Waiting for your question.",
-      "are you free": "Yes, always available for you.",
-      "do you work": "Yes, I work 24/7 😊",
+    const Responses = [
+      // ===== GREETINGS =====
+      {
+        name: "greetings",
+        keywords: ["hello", "hi", "hey", "good morning", "good evening"],
+        response: "Hello! How can I help you?",
+      },
 
-      // ===== IDENTITY (50+) =====
-      "who are you": "I am an AI chatbot.",
-      "what is your name": "I am your virtual assistant.",
-      "are you human": "No, I am an AI program.",
-      "are you real": "I exist digitally to help you.",
+      // ===== SMALL TALK =====
+      {
+        name: "small_talk",
+        keywords: ["how are you", "how r u", "what's up", "how is it going"],
+        response: "I am doing great! What about you?",
+      },
 
-      // ===== EDUCATION (200+) =====
-      "what is computer":
-        "A computer is an electronic device that processes data.",
-      "what is software":
-        "Software is a set of programs that run on a computer.",
-      "what is hardware":
-        "Hardware refers to physical components of a computer.",
-      "what is programming":
-        "Programming is writing instructions for computers.",
-      "what is algorithm":
-        "An algorithm is a step-by-step solution to a problem.",
-      "what is data structure": "It is a way to organize data efficiently.",
+      // ===== IDENTITY =====
+      {
+        name: "identity",
+        keywords: [
+          "who are you",
+          "what is your name",
+          "your name",
+          "are you human",
+        ],
+        response: "I am an AI chatbot created to assist you.",
+      },
 
-      // ===== WEB DEVELOPMENT (200+) =====
-      "what is html": "HTML is used to structure web pages.",
-      "what is css": "CSS styles web pages.",
-      "what is javascript": "JavaScript adds interactivity to web pages.",
-      "what is bootstrap": "Bootstrap is a CSS framework.",
-      "what is react": "React is a JavaScript library for UI development.",
+      // ===== PROJECT INFO =====
+      {
+        name: "project_info",
+        keywords: [
+          "what is this project",
+          "about this project",
+          "project description",
+        ],
+        response: "This is a chatbot developed as a college project.",
+      },
 
-      // ===== AI & TECH (200+) =====
-      "what is ai": "AI stands for Artificial Intelligence.",
-      "what is machine learning":
-        "Machine learning allows systems to learn from data.",
-      "what is chatbot": "A chatbot simulates human conversation.",
-      "what is deep learning": "Deep learning uses neural networks.",
+      // ===== TECHNOLOGY USED =====
+      {
+        name: "technology",
+        keywords: ["technology used", "tools used", "programming language"],
+        response: "This project uses HTML, CSS, JavaScript, and JSON.",
+      },
 
-      // ===== MOTIVATION (50+) =====
-      "motivate me": "Believe in yourself. You can do it!",
-      "i am sad": "I’m here for you. Stay strong.",
-      "i am tired": "Take rest. You deserve it.",
-      "i feel stressed": "Try deep breathing and relaxing.",
+      // ===== CHATBOT WORKING =====
+      {
+        name: "working",
+        keywords: [
+          "how does this work",
+          "how chatbot works",
+          "working of chatbot",
+        ],
+        response: "The chatbot works using rule-based and intent-based logic.",
+      },
 
-      // ===== FUN (50+) =====
-      "tell me a joke": "Why do programmers prefer dark mode? Less bugs!",
-      "another joke": "Why was JavaScript sad? It didn’t know its type.",
-      "make me laugh": "Debugging is like being a detective 😄",
+      // ===== FEATURES =====
+      {
+        name: "features",
+        keywords: ["features", "what can you do", "chatbot features"],
+        response: "I can answer FAQs, assist users, and respond instantly.",
+      },
 
-      // ===== YES / NO =====
-      yes: "Okay!",
-      no: "No problem.",
-      maybe: "Take your time.",
+      // ===== ADVANTAGES =====
+      {
+        name: "advantages",
+        keywords: ["advantages", "benefits", "why chatbot is useful"],
+        response: "It saves time, reduces human effort, and is available 24/7.",
+      },
 
-      // ===== FALLBACK =====
-      default: "Sorry, I didn’t understand that. Please try again.",
-    };
+      // ===== LIMITATIONS =====
+      {
+        name: "limitations",
+        keywords: ["limitations", "disadvantages", "drawbacks"],
+        response:
+          "I depend on predefined data and cannot answer unknown questions.",
+      },
+
+      // ===== FUTURE SCOPE =====
+      {
+        name: "future_scope",
+        keywords: ["future scope", "future improvement", "upgrade project"],
+        response:
+          "In the future, I can be enhanced using machine learning and NLP.",
+      },
+
+      // ===== EDUCATION =====
+      {
+        name: "education",
+        keywords: [
+          "what is programming",
+          "what is coding",
+          "learn programming",
+        ],
+        response:
+          "Programming is the process of writing instructions for computers.",
+      },
+
+      // ===== WEB DEVELOPMENT =====
+      {
+        name: "web_dev",
+        keywords: ["what is html", "what is css", "what is javascript"],
+        response:
+          "HTML structures, CSS styles, and JavaScript adds logic to web pages.",
+      },
+
+      // ===== CAREER =====
+      {
+        name: "career",
+        keywords: ["career in it", "software jobs", "become developer"],
+        response:
+          "You can start by learning programming and building projects.",
+      },
+
+      // ===== MOTIVATION =====
+      {
+        name: "motivation",
+        keywords: ["motivate me", "i am sad", "i feel tired", "i am stressed"],
+        response: "Stay positive. You are doing great and will succeed.",
+      },
+
+      // ===== FUN / JOKES =====
+      {
+        name: "jokes",
+        keywords: ["joke", "tell me a joke", "make me laugh"],
+        response:
+          "Why do programmers love dark mode? Because light attracts bugs!",
+      },
+
+      // ===== TIME =====
+      {
+        name: "time",
+        keywords: ["what time is it", "current time"],
+        response: "Please check your device for the current time.",
+      },
+
+      // ===== THANK YOU =====
+      {
+        name: "thanks",
+        keywords: ["thank you", "thanks", "thx"],
+        response: "You're welcome! Happy to help 😊",
+      },
+
+      // ===== FAREWELL =====
+      {
+        name: "farewell",
+        keywords: ["bye", "goodbye", "see you", "exit"],
+        response: "Goodbye! Have a great day.",
+      },
+    ];
 
     const normalizedText = text.toLowerCase().trim();
-    const botResponse = Responses[normalizedText] || "sorry i cant understand";
+
+    let botResponse = "Sorry, I didn’t understand that. Please try again.";
+
+    for (const intent of Responses) {
+      for (const keyword of intent.keywords) {
+        if (normalizedText.includes(keyword)) {
+          botResponse = intent.response;
+          break;
+        }
+      }
+    }
 
     const bot = await botModel.create({
       text: botResponse,
