@@ -6,9 +6,10 @@
   "scripts": {
     "install-server": "cd Server && npm install",
     "install-client": "cd client && npm install",
-    "install-all": "npm run install-server && npm run install-client",
+    "install-all": "npm install && npm run install-server && npm run install-client",
     "build-client": "cd client && npm run build",
-    "start": "node Server/index.js"
+    "start": "node Server/index.js",
+    "build": "npm install && npm audit fix && npm run install-all && npm run build-client"
   },
   "keywords": [],
   "author": "",
